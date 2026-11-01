@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ADVEYRA AI STUDIO</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div id="login" class="login-wrap">
+    <form id="loginForm" class="login-card">
+      <div class="brand-mark">A</div>
+      <p class="eyebrow">PRIVATE DEVELOPMENT WORKSPACE</p>
+      <h1>ADVEYRA AI STUDIO</h1>
+      <p class="muted">Sign in to your AI coding workspace.</p>
+      <label>Admin username<input id="username" autocomplete="username" required></label>
+      <label>Admin password<input id="password" type="password" autocomplete="current-password" required></label>
+      <button class="primary" type="submit">Sign in</button>
+      <p id="loginError" class="error"></p>
+    </form>
+  </div>
+
+  <div id="app" class="app hidden">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark small">A</span><strong>ADVEYRA <span>AI STUDIO</span></strong></div>
+      <div class="top-actions"><span id="status" class="status">Checking connection…</span><button id="pushBtn" class="secondary">Push to GitHub</button><button id="logoutBtn" class="ghost">Log out</button></div>
+    </header>
+    <main class="layout">
+      <aside class="chat-panel panel">
+        <div class="panel-heading"><div><p class="eyebrow">AI DEVELOPER</p><h2>Agent Chat</h2></div><span class="online-dot"></span></div>
+        <div id="chatMessages" class="messages">
+          <div class="bubble assistant">Hi! I’m your ADVEYRA coding agent. Tell me what you want to build or change. I can inspect, create and edit project files in this workspace.</div>
+        </div>
+        <form id="chatForm" class="composer">
+          <textarea id="prompt" rows="3" placeholder="Describe a website, feature, or code change…" required></textarea>
+          <div class="composer-footer"><span class="muted tiny">OpenAI API usage is billed separately.</span><button id="sendBtn" class="primary" type="submit">Send ↗</button></div>
+        </form>
+      </aside>
+      <section class="files-panel panel">
+        <div class="panel-heading"><div><p class="eyebrow">PROJECT WORKSPACE</p><h2>Files</h2></div><button id="refreshFiles" class="ghost">Refresh</button></div>
+        <div id="fileList" class="file-list"><p class="muted">Loading files…</p></div>
+        <div class="editor-head"><span id="currentFile">Select a file</span><button id="saveFile" class="secondary" disabled>Save file</button></div>
+        <textarea id="editor" class="editor" spellcheck="false" placeholder="Select a file to view or edit its contents…"></textarea>
+      </section>
+      <section class="preview-panel panel">
+        <div class="panel-heading"><div><p class="eyebrow">LOCAL PROJECT VIEW</p><h2>Preview</h2></div><button id="previewBtn" class="secondary">Preview HTML</button></div>
+        <div class="preview-note">Select an HTML file and click Preview HTML. This previews static HTML only; backend apps need a separately configured runtime.</div>
+        <iframe id="preview" title="Project preview" sandbox="allow-scripts"></iframe>
+        <div class="deploy-note"><strong>Deployment:</strong> Push your files to GitHub, then connect that repository to Render or another host. This starter does not run arbitrary terminal commands or deploy projects itself.</div>
+      </section>
+    </main>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>
